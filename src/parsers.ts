@@ -17,7 +17,8 @@ const amazonListPage = async (page: Page) => {
       .first()
       .text();
     const price = $(elem).find(".a-price-whole").text();
-    data.push({ productId, name, numberOfRatings, rating, price });
+    const image = $(elem).find(".s-image-square-aspect img").attr("src");
+    data.push({ productId, name, numberOfRatings, rating, price, image });
   });
   return data;
 };
